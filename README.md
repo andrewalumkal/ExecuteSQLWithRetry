@@ -1,5 +1,5 @@
 # ExecuteSQLWithRetry
-Executes a given SQL statement or stored procedure with option to specify lock_timeout and number of retries
+Executes a given SQL statement or stored procedure with option to specify lock_timeout and max number of retries
 
 ```
 EXEC dbo.ExecuteSQLWithRetry @sql = N'', --SQL statement or Stored proc to be execute. Required parameter.
@@ -9,12 +9,13 @@ EXEC dbo.ExecuteSQLWithRetry @sql = N'', --SQL statement or Stored proc to be ex
 ```
 # Examples
 
-###### Get current servername - use default values
+Get current servername - use default values
 
 ```EXEC dbo.ExecuteSQLWithRetry @sql='SELECT @@SERVERNAME'```
 
 
-###### Execute MyProc with lock_timeout of 10 seconds, retry up to 10 times, with a delay of 2 seconds between each retry attempt
+
+Execute MyProc with lock_timeout of 10 seconds, retry up to 10 times, with a delay of 2 seconds between each retry attempt
 ```
 EXEC dbo.ExecuteSQLWithRetry @sql = N'EXEC dbo.MyProc @ParamString=''value1'', @ParamInt=3', --Remember to escape quotes
                              @retryCount=10,
