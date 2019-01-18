@@ -2,7 +2,7 @@
 Executes a given SQL statement or stored procedure with option to specify lock_timeout and max number of retries
 
 ```
-EXEC dbo.ExecuteSQLWithRetry @sql = N'', --SQL statement or Stored proc to be execute. Required parameter.
+EXEC dbo.ExecuteSQLWithRetry @sql = N'', --SQL statement or Stored proc to be executed. Required parameter.
                              @retryCount, --Max number of times to retry when @sql exceeds lock timeout. 1 by default.
                              @lockTimeoutms, --Lock timeout in milliseconds. 1000 by default.
                              @delaySeconds --Delay in seconds between each retry. 1 by default.
