@@ -83,7 +83,7 @@ BEGIN
 	DECLARE @errormsg NVARCHAR(max);
 
 	SET @currentProc=(SELECT OBJECT_NAME(@@PROCID))
-	SET @errormsg= @currentProc + ': ' + 'Command failed to execute within the specified @retryCount(' + CAST(@retryCount AS NVARCHAR(2)) + ') and @lockTimeoutms(' + CAST(@lockTimeoutms AS NVARCHAR(10)) + ')'
+	SET @errormsg= @currentProc + ': ' + 'Command failed to execute within the specified @retryCount(' + CAST(@retryCount AS NVARCHAR(2)) + ') and @lockTimeoutms(' + CAST(@lockTimeoutms AS NVARCHAR(10)) + ')'+ ' -  Command: [' +@sqlToExecute+']'
 
 	RAISERROR(@errormsg,17,1)
 
