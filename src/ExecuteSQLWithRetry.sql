@@ -5,10 +5,10 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE PROCEDURE dbo.ExecuteSQLWithRetry 
-	@sql NVARCHAR(max) = NULL,
-	@retryCount TINYINT = 1,
-	@lockTimeoutms INT = 1000,
-	@delaySeconds INT = 1
+	@sql NVARCHAR(max) = NULL,  --SQL statement or Stored proc to be executed. Required parameter.
+	@retryCount INT = 1,	    --Max number of times to retry when @sql exceeds lock timeout. 1 by default.
+	@lockTimeoutms INT = 1000,	--Lock timeout in milliseconds. 1000 by default.
+	@delaySeconds INT = 1		--Delay in seconds between each retry. 1 by default.
 AS
 BEGIN
 
